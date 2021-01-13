@@ -11,4 +11,10 @@ def index(req):
     todasCategorias = Categoria.objects.all()
     categoriasHomems = Categoria.objects.filter(categoria = 'H')
     categoriasMulheres = Categoria.objects.filter(categoria = 'M')
-    return render(req, '../templates/modules/home.html', {'todasCategorias': todasCategorias,'produtos': produtos,'categorias': categorias, 'categoriasHomems': categoriasHomems, 'categoriasMulheres': categoriasMulheres});
+    categoriasMatriz = []
+    todasCategorias = Categoria.objects.all()
+    for categoria in todasCategorias:
+        categoriasList = []
+        categoriasList.append(Produto.objects.filter(categoria = categoria))
+        categoriasMatriz.append(categoriasList)
+    return render(req, '../templates/modules/home.html', {'todasCategorias': todasCategorias, 'categoriasMatriz': categoriasMatriz, 'todasCategorias': todasCategorias,'produtos': produtos,'categorias': categorias, 'categoriasHomems': categoriasHomems, 'categoriasMulheres': categoriasMulheres});
