@@ -7,7 +7,8 @@ from .models import Produto, Categoria
 
 def index(req):
     produtos = Produto.objects.all()
-    categorias = Categoria.objects.all()
+    categorias = Categoria.objects.filter(categoria = 'U')
+    todasCategorias = Categoria.objects.all()
     categoriasHomems = Categoria.objects.filter(categoria = 'H')
-    print(categoriasHomems)
-    return render(req, '../templates/modules/home.html', {'produtos': produtos,'categorias': categorias, 'categoriasHomems': categoriasHomems});
+    categoriasMulheres = Categoria.objects.filter(categoria = 'M')
+    return render(req, '../templates/modules/home.html', {'todasCategorias': todasCategorias,'produtos': produtos,'categorias': categorias, 'categoriasHomems': categoriasHomems, 'categoriasMulheres': categoriasMulheres});

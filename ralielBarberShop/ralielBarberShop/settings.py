@@ -78,11 +78,9 @@ WSGI_APPLICATION = 'ralielBarberShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ralielBarberShop',
-        'USER': 'rafael',
-        'PASSWORD': '4815162342',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'OPTIONS':{
+            'read_default_file': os.path.join(BASE_DIR, 'configuration.cnf')
+        }
     }
 }
 

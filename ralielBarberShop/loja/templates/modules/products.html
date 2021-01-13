@@ -15,16 +15,18 @@
                                 </div>
                             </div>
                         {% endfor %}
+
+
+                        
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    <a class = "collapsed" data-toggle="collapse" data-parent="#accordian" href="#mens">
                                         Homens
                                     </a>
                                 </h4>
                             </div>
-                            <div id="mens" class="panel-collapse collapse">
+                            <div id="mens" class="panel-collapse" id = "collapse">
                                 <div class="panel-body">
                                     <ul>
                                         {% for categoriaObject in categoriasHomems %}
@@ -38,17 +40,16 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    <a class = "collapsed" data-toggle="collapse" data-parent="#accordian" href="#mens">
                                         Mulheres
                                     </a>
                                 </h4>
                             </div>
-                            <div id="womens" class="panel-collapse collapse">
+                            <div id="mens" class="panel-collapse" id = "collapse">
                                 <div class="panel-body">
                                     <ul>
                                         {% for categoriaObject in categoriasMulheres %}
-                                            <li><a href="#">{{categoriaObject.nome}} </a></li>
+                                            <li><a href="#">{{categoriaObject.nome}}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -118,7 +119,7 @@
                 <div class="category-tab"><!--category-tab-->
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
-                            {% for categoria in categorias %}
+                            {% for categoria in todasCategorias %}
                                 {% if forloop.counter0 == 0 %}
                                 <li class="active"><a href="#{{categoria.nome}}}" data-toggle="tab">{{categoria.nome}}</a></li>
                                 {% else %}
